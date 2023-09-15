@@ -23,6 +23,9 @@ runs:
       with:
         repository: openhd/bsp
         submodules: true
+    - name: Debug
+      run: |
+        echo "openhdisgreat"
     - name: Install dependency
       shell: bash
       run: |
