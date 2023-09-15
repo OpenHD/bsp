@@ -23,9 +23,6 @@ runs:
       with:
         repository: openhd/bsp
         submodules: true
-    - name: Debug
-      run: |
-        echo "openhdisgreat"
     - name: Install dependency
       shell: bash
       run: |
@@ -38,24 +35,7 @@ runs:
         pushd .output
         ../bsp --long-version -r ${{ inputs.revision }} ${{ inputs.target }} ${{ inputs.edition }}
         popd
-    - name: Upload artifacts
-      if: inputs.artifacts == 'true' && inputs.board != 'rootfs'
-      uses: actions/upload-artifact@v3
-      with:
-        name: ${{ inputs.target }}_${{ inputs.edition }}_${{ inputs.revision }}
-        path: .output
-    - name: Upload
-      if: inputs.release-id != '' && inputs.github-token != ''
-      uses: xresloader/upload-to-github-release@v1
-      env:
-          GITHUB_TOKEN: ${{ inputs.github-token }}
-      with:
-        release_id: ${{ inputs.release-id }}
-        file: .output/*
-    - name: Rollback release
-      if: failure() && inputs.release-id != '' && inputs.github-token != ''
-      uses: author/action-rollback@stable
-      env:
-        GITHUB_TOKEN: ${{ inputs.github-token }}
-      with:
-        release_id: ${{ inputs.release-id }}
+    - name: debug
+      shell: bash
+      run: |
+        ls -a
