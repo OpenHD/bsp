@@ -21,7 +21,7 @@ runs:
     - name: Checkout
       uses: actions/checkout@v4
       with:
-        repository: radxa-repo/bsp
+        repository: openhd/bsp
         submodules: true
     - name: Install dependency
       shell: bash
