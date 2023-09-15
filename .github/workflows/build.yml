@@ -49,7 +49,7 @@ jobs:
         editions: ${{fromJSON(needs.query.outputs.u-boot)}}
     steps:
       - name: Build
-        uses: radxa-repo/bsp@main
+        uses: OpenHD/bsp@main
         with:
           target: ${{ matrix.targets }}
           edition: ${{ matrix.editions }}
@@ -63,7 +63,7 @@ jobs:
         editions: ${{fromJSON(needs.query.outputs.linux)}}
     steps:
       - name: Build
-        uses: radxa-repo/bsp@main
+        uses: OpenHD/bsp@main
         with:
           target: ${{ matrix.targets }}
           edition: ${{ matrix.editions }}
