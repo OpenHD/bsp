@@ -31,6 +31,7 @@ runs:
     - name: Build
       shell: bash
       run: |
+        echo "debug-step"
         mkdir .output
         pushd .output
         ../bsp --long-version -r ${{ inputs.revision }} ${{ inputs.target }} ${{ inputs.edition }}
@@ -38,4 +39,4 @@ runs:
     - name: debug
       shell: bash
       run: |
-        ls -a
+        ls -a 
