@@ -192,6 +192,14 @@ prepare_source() {
             git reset --hard FETCH_HEAD
             git clean -ffd
             git switch --detach $origin/$BSP_BRANCH
+            #openhd-update-wifi-card-drivers
+            cd drivers/net/wireless/rtl8812au
+            ls -a
+            git pull
+            cd ../rtl88x2bu
+            ls -a
+            git pull
+            cd ../../../../
         fi
 
         if $LONG_VERSION
