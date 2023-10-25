@@ -192,6 +192,20 @@ prepare_source() {
             git reset --hard FETCH_HEAD
             git clean -ffd
             git switch --detach $origin/$BSP_BRANCH
+            #openhd-update-wifi-card-drivers
+            cd drivers/net/wireless/
+            rm -Rf rtl8812au
+            rm -Rf rtl88x2bu
+            git clone https://github.com/openhd/rtl8812au/
+            git clone https://github.com/openhd/rtl88x2bu/
+            cd rtl8812au
+            sed -i 's/CONFIG_PLATFORM_I386_PC = y/CONFIG_PLATFORM_I386_PC = n/' Makefile || exit 1
+            sed -i 's/CONFIG_PLATFORM_ARM64_RPI = n/CONFIG_PLATFORM_ARM64_RPI = y/' Makefile || exit 1
+            cd ..
+            cd rtl88x2bu
+            sed -i 's/CONFIG_PLATFORM_I386_PC = y/CONFIG_PLATFORM_I386_PC = n/' Makefile || exit 1
+            sed -i 's/CONFIG_PLATFORM_ARM64_RPI = n/CONFIG_PLATFORM_ARM64_RPI = y/' Makefile || exit 1
+            cd ../../../../
         fi
 
         if $LONG_VERSION
