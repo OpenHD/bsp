@@ -187,7 +187,7 @@ prepare_source() {
             git reset --hard FETCH_HEAD
             git clean -ffd
             git switch --detach tags/$BSP_TAG
-                            echo "debug tag"
+            echo "debug tag"
 
         elif [[ -n $BSP_BRANCH ]]
         then
