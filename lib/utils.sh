@@ -185,7 +185,7 @@ prepare_source() {
             #openhd-update-wifi-card-drivers
             ls ../../../../RK_Kernel/
             echo "$PWD"
-            cd ../../drivers/net/wireless/
+            cd ../../../../RK_Kernel/drivers/net/wireless/
             rm -Rf rtl8812au
             rm -Rf rtl88x2bu
             git clone https://github.com/openhd/rtl8812au/
