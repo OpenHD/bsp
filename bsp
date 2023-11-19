@@ -345,6 +345,7 @@ main() {
 
     if ! $NATIVE_BUILD
     then
+        echo "test3"
         if [[ "$(basename "$CONTAINER_BACKEND")" == "docker" ]] && "$CONTAINER_BACKEND" --help | grep -q podman
         then
             echo "'$CONTAINER_BACKEND' backend is selected, but the functionality is actually provided by 'podman' backend. Updating accordingly..."
@@ -368,12 +369,14 @@ main() {
         then
             $CONTAINER_BACKEND container rm bsp &>/dev/null || true
             $CONTAINER_BACKEND image rm "${CONTAINER_REGISTRY}bsp:builder" &>/dev/null || true
+            echo "test1"
         fi
 
         CONTAINER_BUILDER="$($CONTAINER_BACKEND image ls "-qf=reference=${CONTAINER_REGISTRY}bsp:builder")"
         if [[ -z $CONTAINER_BUILDER ]]
         then
             $CONTAINER_BACKEND tag "${CONTAINER_REGISTRY}bsp:main" "${CONTAINER_REGISTRY}bsp:builder"
+            echo "test2"
         fi
 
         CONTAINER_OPTIONS=( "--name" "bsp" )
