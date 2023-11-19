@@ -183,7 +183,7 @@ prepare_source() {
         then
             echo "include wifi drivers"
             #openhd-update-wifi-card-drivers
-            cd drivers/net/wireless/
+            cd ../../drivers/net/wireless/
             rm -Rf rtl8812au
             rm -Rf rtl88x2bu
             git clone https://github.com/openhd/rtl8812au/
