@@ -184,6 +184,7 @@ prepare_source() {
             echo "include wifi drivers"
             #openhd-update-wifi-card-drivers
             ls ../../../../RK_Kernel/
+            echo "$PWD"
             exit 1
             cd ../../drivers/net/wireless/
             rm -Rf rtl8812au
