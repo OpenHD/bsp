@@ -357,6 +357,7 @@ main() {
 
         if ! $NO_CONTAINER_UPDATE
                 echo "test4"
+        ls -a
         then
             if [[ -z $CONTAINER_REGISTRY ]]
             then
