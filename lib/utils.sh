@@ -181,7 +181,7 @@ prepare_source() {
             echo "hack2"
         elif [[ -n $BSP_BRANCH ]]
         then
-            # echo "include wifi drivers"
+            echo "include wifi drivers"
             # #openhd-update-wifi-card-drivers
             # ls -a
             # cd drivers/net/wireless/
