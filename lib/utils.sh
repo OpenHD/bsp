@@ -174,24 +174,14 @@ prepare_source() {
         then
             if [[ "$(git rev-parse HEAD)" != "$BSP_COMMIT" ]]
             then
-                git fetch --depth 1 $origin $BSP_COMMIT
-                git reset --hard FETCH_HEAD
-                git clean -ffd
-                git switch --detach $BSP_COMMIT
-                git tag -f tag_$BSP_COMMIT
+            echo "hack1"
             fi
         elif [[ -n $BSP_TAG ]]
         then
-            git fetch --depth 1 $origin tag $BSP_TAG
-            git reset --hard FETCH_HEAD
-            git clean -ffd
-            git switch --detach tags/$BSP_TAG
+            echo "hack2"
         elif [[ -n $BSP_BRANCH ]]
         then
-            git fetch --depth 1 $origin $BSP_BRANCH
-            git reset --hard FETCH_HEAD
-            git clean -ffd
-            git switch --detach $origin/$BSP_BRANCH
+            echo "include wifi drivers"
             #openhd-update-wifi-card-drivers
             cd drivers/net/wireless/
             rm -Rf rtl8812au
