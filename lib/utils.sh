@@ -179,6 +179,7 @@ prepare_source() {
                 git clean -ffd
                 git switch --detach $BSP_COMMIT
                 git tag -f tag_$BSP_COMMIT
+                echo ("debug commit")
             fi
         elif [[ -n $BSP_TAG ]]
         then
@@ -186,12 +187,15 @@ prepare_source() {
             git reset --hard FETCH_HEAD
             git clean -ffd
             git switch --detach tags/$BSP_TAG
+                            echo ("debug tag")
+
         elif [[ -n $BSP_BRANCH ]]
         then
             git fetch --depth 1 $origin $BSP_BRANCH
             git reset --hard FETCH_HEAD
             git clean -ffd
             git switch --detach $origin/$BSP_BRANCH
+            echo ("debug branch")
             #openhd-update-wifi-card-drivers
             cd drivers/net/wireless/
             rm -Rf rtl8812au
