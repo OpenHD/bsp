@@ -181,22 +181,22 @@ prepare_source() {
             echo "hack2"
         elif [[ -n $BSP_BRANCH ]]
         then
-            echo "include wifi drivers"
-            #openhd-update-wifi-card-drivers
-            ls -a
-            cd drivers/net/wireless/
-            rm -Rf rtl8812au
-            rm -Rf rtl88x2bu
-            git clone https://github.com/openhd/rtl8812au/
-            git clone https://github.com/openhd/rtl88x2bu/
-            cd rtl8812au
-            sed -i 's/CONFIG_PLATFORM_I386_PC = y/CONFIG_PLATFORM_I386_PC = n/' Makefile || exit 1
-            sed -i 's/CONFIG_PLATFORM_ARM64_RPI = n/CONFIG_PLATFORM_ARM64_RPI = y/' Makefile || exit 1
-            cd ..
-            cd rtl88x2bu
-            sed -i 's/CONFIG_PLATFORM_I386_PC = y/CONFIG_PLATFORM_I386_PC = n/' Makefile || exit 1
-            sed -i 's/CONFIG_PLATFORM_ARM64_RPI = n/CONFIG_PLATFORM_ARM64_RPI = y/' Makefile || exit 1
-            cd ../../../../
+            # echo "include wifi drivers"
+            # #openhd-update-wifi-card-drivers
+            # ls -a
+            # cd drivers/net/wireless/
+            # rm -Rf rtl8812au
+            # rm -Rf rtl88x2bu
+            # git clone https://github.com/openhd/rtl8812au/
+            # git clone https://github.com/openhd/rtl88x2bu/
+            # cd rtl8812au
+            # sed -i 's/CONFIG_PLATFORM_I386_PC = y/CONFIG_PLATFORM_I386_PC = n/' Makefile || exit 1
+            # sed -i 's/CONFIG_PLATFORM_ARM64_RPI = n/CONFIG_PLATFORM_ARM64_RPI = y/' Makefile || exit 1
+            # cd ..
+            # cd rtl88x2bu
+            # sed -i 's/CONFIG_PLATFORM_I386_PC = y/CONFIG_PLATFORM_I386_PC = n/' Makefile || exit 1
+            # sed -i 's/CONFIG_PLATFORM_ARM64_RPI = n/CONFIG_PLATFORM_ARM64_RPI = y/' Makefile || exit 1
+            # cd ../../../../
         fi
 
         if $LONG_VERSION

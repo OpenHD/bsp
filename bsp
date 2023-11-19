@@ -356,6 +356,7 @@ main() {
         local CONTAINER_EXIT_CODE=0
 
         if ! $NO_CONTAINER_UPDATE
+                echo "test4"
         then
             if [[ -z $CONTAINER_REGISTRY ]]
             then
