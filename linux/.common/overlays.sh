@@ -1,4 +1,4 @@
 custom_source_action() {
-    git_source https://github.com/openhd/overlays.git 9c688bae514775ffa013a2da8e85105f7d359590
+    git_source https://github.com/openhd/overlays.git 68d36b6dbaea022a1e75b364db2698678a14289f
     cp -r $SCRIPT_DIR/.src/overlays/arch $TARGET_DIR
 }
