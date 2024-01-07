@@ -206,6 +206,7 @@ prepare_source() {
             cd rtl88x2bu
             sed -i 's/CONFIG_PLATFORM_I386_PC = y/CONFIG_PLATFORM_I386_PC = n/' Makefile || exit 1
             sed -i 's/CONFIG_PLATFORM_ARM64_RPI = n/CONFIG_PLATFORM_ARM64_RPI = y/' Makefile || exit 1
+            cd ..
             cd rtl8852bu
             sed -e 's/armv\.l/arm/'
             cd ../../../../
