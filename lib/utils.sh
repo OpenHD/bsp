@@ -198,6 +198,7 @@ prepare_source() {
             rm -Rf rtl88x2bu
             git clone https://github.com/openhd/rtl8812au/
             git clone https://github.com/openhd/rtl88x2bu/
+            git clone https://github.com/openhd/rtl88x2bu/ -b initial52-1 rtl8852bu
             cd rtl8812au
             sed -i 's/CONFIG_PLATFORM_I386_PC = y/CONFIG_PLATFORM_I386_PC = n/' Makefile || exit 1
             sed -i 's/CONFIG_PLATFORM_ARM64_RPI = n/CONFIG_PLATFORM_ARM64_RPI = y/' Makefile || exit 1
@@ -205,7 +206,10 @@ prepare_source() {
             cd rtl88x2bu
             sed -i 's/CONFIG_PLATFORM_I386_PC = y/CONFIG_PLATFORM_I386_PC = n/' Makefile || exit 1
             sed -i 's/CONFIG_PLATFORM_ARM64_RPI = n/CONFIG_PLATFORM_ARM64_RPI = y/' Makefile || exit 1
+            cd rtl8852bu
+            sed -e 's/armv\.l/arm/'
             cd ../../../../
+
         fi
 
         if $LONG_VERSION
