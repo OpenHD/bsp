@@ -208,7 +208,7 @@ prepare_source() {
             sed -i 's/CONFIG_PLATFORM_ARM64_RPI = n/CONFIG_PLATFORM_ARM64_RPI = y/' Makefile || exit 1
             cd ..
             cd rtl8852bu
-            sed -e 's/armv\.l/arm/'
+            sed -e 's/aarch64\.l/arm64/'
             cd ../../../../
 
         fi
